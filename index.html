@@ -8,6 +8,7 @@
     <meta property="og:title" content="Desert Yard – Manual Weed Removal & Yard Cleanup">
     <meta property="og:description" content="Hand-pulled weeds, clean yards, no chemicals — serving Casa Grande, AZ.">
     <meta property="og:type" content="local_business">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=60">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="/favicon.ico">
@@ -35,6 +36,23 @@
             --white: #FFFFFF;
             --accent-orange: #D2691E;
             --shadow: rgba(92, 64, 51, 0.1);
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: -999px;
+            background: var(--desert-green);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: 6px;
+            z-index: 2000;
+        }
+
+        .skip-link:focus {
+            left: 12px;
+            top: 12px;
         }
 
         body {
@@ -114,7 +132,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--desert-brown) 0%, var(--desert-dark) 100%);
+            background: linear-gradient(135deg, rgba(92,64,51,0.6) 0%, rgba(44,32,28,0.6) 100%), url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;
             color: var(--white);
             padding: 120px 20px;
             text-align: center;
@@ -168,6 +186,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
+
 
         .cta-button:hover {
             transform: translateY(-2px);
@@ -784,6 +803,7 @@
         </script>
 </head>
 <body id="top">
+    <a href="#main" class="skip-link">Skip to content</a>
     <!-- Navigation Header -->
     <header>
         <nav role="navigation" aria-label="Main Navigation">
@@ -818,12 +838,14 @@
         </div>
     </section>
 
+    <main id="main">
+
     <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Desert Yard</h2>
             <div class="about-content">
-                <p>Desert Yard is a local, family-friendly business based in Casa Grande, Arizona, run by three dedicated teens who love keeping yards looking their best. We specialize in manual weed removal and thorough yard cleanup, carefully removing weeds and debris by hand—no chemicals, no sprays, just a clean, healthy yard you can be proud of.</p>
+                <p>Desert Yard is a local, family-run business based in Casa Grande, Arizona. Our small team specializes in manual weed removal and thorough yard cleanup, carefully removing weeds and debris by hand—no chemicals or sprays—just a clean, healthy yard you can be proud of.</p>
             </div>
         </div>
     </section>
@@ -943,6 +965,27 @@
             </div>
         </div>
     </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Homeowners Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">Excellent service — thorough, polite, and my yard looks fantastic. They removed everything by hand like they promised.</div>
+                    <div class="testimonial-author">Maria R.</div>
+                    <div class="testimonial-location">Casa Grande, AZ</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">Reliable and affordable. The team arrived on time and left no mess. Highly recommend for anyone wanting chemical-free care.</div>
+                    <div class="testimonial-author">James T.</div>
+                    <div class="testimonial-location">Casa Grande, AZ</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FAQ Section -->
     <section id="faq">
@@ -1029,6 +1072,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1064,7 +1109,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Desert Yard – Casa Grande, AZ | All Rights Reserved</p>
+            <p>&copy; <span id="year">2026</span> Desert Yard – Casa Grande, AZ | All Rights Reserved</p>
         </div>
     </footer>
 
@@ -1152,6 +1197,10 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+        // Auto-update footer year
+        const yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
     </script>
     <script src="//code.tidio.co/6ify9pv1co2ozsopbah2ljsc7ldfigrl.js" async></script>
 </body>
